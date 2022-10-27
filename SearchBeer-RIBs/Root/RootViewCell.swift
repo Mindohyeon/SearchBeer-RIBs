@@ -14,8 +14,15 @@ class RootViewCell: UITableViewCell {
         $0.backgroundColor = .gray
     }
     
+    private let beerDescriptionLabel = UILabel().then {
+        $0.text = "textasdfasfasfasfsafsdfas"
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addView()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -23,13 +30,19 @@ class RootViewCell: UITableViewCell {
     }
     
     func addView() {
-        contentView.addSubViews(beerImg)
+        contentView.addSubViews(beerImg, beerDescriptionLabel)
     }
     
     func setLayout() {
         beerImg.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().inset(10)
+            $0.size.equalTo(70)
+        }
+        
+        beerDescriptionLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(10)
         }
     }
 }
