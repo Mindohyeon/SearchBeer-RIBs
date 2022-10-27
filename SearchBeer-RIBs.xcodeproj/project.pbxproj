@@ -103,8 +103,6 @@
 				DFAD9B54290A73D400D6A950 /* BeerSearch */,
 				DFAD9B4B290A721500D6A950 /* TabBar */,
 				DFAD9B45290A02FF00D6A950 /* Root */,
-				DFAD9B29290A02EE00D6A950 /* AppDelegate.swift */,
-				DFAD9B2B290A02EE00D6A950 /* SceneDelegate.swift */,
 				DFAD9B2D290A02EE00D6A950 /* ViewController.swift */,
 				DFAD9B32290A02F000D6A950 /* Assets.xcassets */,
 				DFAD9B34290A02F000D6A950 /* LaunchScreen.storyboard */,
@@ -117,6 +115,8 @@
 		DFAD9B45290A02FF00D6A950 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				DFAD9B29290A02EE00D6A950 /* AppDelegate.swift */,
+				DFAD9B2B290A02EE00D6A950 /* SceneDelegate.swift */,
 				DFAD9B3D290A02FD00D6A950 /* RootRouter.swift */,
 				DFAD9B3E290A02FD00D6A950 /* RootViewController.swift */,
 				DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */,

@@ -23,5 +23,13 @@ class RootViewCell: UITableViewCell {
     }
     
     func addView() {
+        contentView.addSubViews(beerImg)
+    }
+    
+    func setLayout() {
+        beerImg.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(10)
+            $0.leading.equalToSuperview().inset(10)
+        }
     }
 }
