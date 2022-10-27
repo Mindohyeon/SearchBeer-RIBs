@@ -8,7 +8,7 @@
 import Foundation
 import RIBs
 
-class AppComponent: Component<EmptyDependency>, RootDependency {
+class AppComponent: Component<EmptyDependency>, TabBarDependency {
     
     init() {
         super.init(dependency: EmptyComponent())

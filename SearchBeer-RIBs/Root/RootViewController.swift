@@ -16,6 +16,11 @@ protocol RootPresentableListener: AnyObject {
 }
 
 final class RootViewController: UIViewController, RootPresentable, RootViewControllable {
-
+    
     weak var listener: RootPresentableListener?
+    
+    override func viewDidLoad() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Beer List"
+    }
 }
