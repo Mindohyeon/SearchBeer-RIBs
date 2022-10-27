@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B29290A02EE00D6A950 /* AppDelegate.swift */; };
+		DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B2B290A02EE00D6A950 /* SceneDelegate.swift */; };
+		DFAD9B2E290A02EE00D6A950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B2D290A02EE00D6A950 /* ViewController.swift */; };
+		DFAD9B31290A02EE00D6A950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAD9B2F290A02EE00D6A950 /* Main.storyboard */; };
+		DFAD9B33290A02F000D6A950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFAD9B32290A02F000D6A950 /* Assets.xcassets */; };
+		DFAD9B36290A02F000D6A950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAD9B34290A02F000D6A950 /* LaunchScreen.storyboard */; };
+		DFAD9B41290A02FD00D6A950 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B3D290A02FD00D6A950 /* RootRouter.swift */; };
+		DFAD9B42290A02FD00D6A950 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B3E290A02FD00D6A950 /* RootViewController.swift */; };
+		DFAD9B43290A02FD00D6A950 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */; };
+		DFAD9B44290A02FD00D6A950 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SearchBeer-RIBs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFAD9B29290A02EE00D6A950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFAD9B2B290A02EE00D6A950 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DFAD9B2D290A02EE00D6A950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFAD9B30290A02EE00D6A950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DFAD9B32290A02F000D6A950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFAD9B35290A02F000D6A950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DFAD9B37290A02F000D6A950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFAD9B3D290A02FD00D6A950 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		DFAD9B3E290A02FD00D6A950 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFAD9B23290A02EE00D6A950 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFAD9B1D290A02EE00D6A950 = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B28290A02EE00D6A950 /* SearchBeer-RIBs */,
+				DFAD9B27290A02EE00D6A950 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFAD9B27290A02EE00D6A950 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFAD9B28290A02EE00D6A950 /* SearchBeer-RIBs */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B45290A02FF00D6A950 /* Root */,
+				DFAD9B29290A02EE00D6A950 /* AppDelegate.swift */,
+				DFAD9B2B290A02EE00D6A950 /* SceneDelegate.swift */,
+				DFAD9B2D290A02EE00D6A950 /* ViewController.swift */,
+				DFAD9B2F290A02EE00D6A950 /* Main.storyboard */,
+				DFAD9B32290A02F000D6A950 /* Assets.xcassets */,
+				DFAD9B34290A02F000D6A950 /* LaunchScreen.storyboard */,
+				DFAD9B37290A02F000D6A950 /* Info.plist */,
+			);
+			path = "SearchBeer-RIBs";
+			sourceTree = "<group>";
+		};
+		DFAD9B45290A02FF00D6A950 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B3D290A02FD00D6A950 /* RootRouter.swift */,
+				DFAD9B3E290A02FD00D6A950 /* RootViewController.swift */,
+				DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */,
+				DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFAD9B25290A02EE00D6A950 /* SearchBeer-RIBs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFAD9B3A290A02F000D6A950 /* Build configuration list for PBXNativeTarget "SearchBeer-RIBs" */;
+			buildPhases = (
+				DFAD9B22290A02EE00D6A950 /* Sources */,
+				DFAD9B23290A02EE00D6A950 /* Frameworks */,
+				DFAD9B24290A02EE00D6A950 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SearchBeer-RIBs";
+			productName = "SearchBeer-RIBs";
+			productReference = DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFAD9B1E290A02EE00D6A950 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					DFAD9B25290A02EE00D6A950 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = DFAD9B21290A02EE00D6A950 /* Build configuration list for PBXProject "SearchBeer-RIBs" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFAD9B1D290A02EE00D6A950;
+			productRefGroup = DFAD9B27290A02EE00D6A950 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFAD9B25290A02EE00D6A950 /* SearchBeer-RIBs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFAD9B24290A02EE00D6A950 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFAD9B36290A02F000D6A950 /* LaunchScreen.storyboard in Resources */,
+				DFAD9B33290A02F000D6A950 /* Assets.xcassets in Resources */,
+				DFAD9B31290A02EE00D6A950 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFAD9B22290A02EE00D6A950 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFAD9B42290A02FD00D6A950 /* RootViewController.swift in Sources */,
+				DFAD9B41290A02FD00D6A950 /* RootRouter.swift in Sources */,
+				DFAD9B44290A02FD00D6A950 /* RootInteractor.swift in Sources */,
+				DFAD9B2E290A02EE00D6A950 /* ViewController.swift in Sources */,
+				DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */,
+				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
+				DFAD9B43290A02FD00D6A950 /* RootBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DFAD9B2F290A02EE00D6A950 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFAD9B30290A02EE00D6A950 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DFAD9B34290A02F000D6A950 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFAD9B35290A02F000D6A950 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DFAD9B38290A02F000D6A950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DFAD9B39290A02F000D6A950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DFAD9B3B290A02F000D6A950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X52UAWWKMX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SearchBeer-RIBs/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.SearchBeer-RIBs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFAD9B3C290A02F000D6A950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X52UAWWKMX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SearchBeer-RIBs/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.SearchBeer-RIBs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFAD9B21290A02EE00D6A950 /* Build configuration list for PBXProject "SearchBeer-RIBs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFAD9B38290A02F000D6A950 /* Debug */,
+				DFAD9B39290A02F000D6A950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFAD9B3A290A02F000D6A950 /* Build configuration list for PBXNativeTarget "SearchBeer-RIBs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFAD9B3B290A02F000D6A950 /* Debug */,
+				DFAD9B3C290A02F000D6A950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFAD9B1E290A02EE00D6A950 /* Project object */;
+}
