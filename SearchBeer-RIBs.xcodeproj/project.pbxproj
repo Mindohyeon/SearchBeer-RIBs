@@ -26,6 +26,10 @@
 		DFAD9B5B290A73EE00D6A950 /* BeerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B57290A73EE00D6A950 /* BeerSearchViewController.swift */; };
 		DFAD9B5C290A73EE00D6A950 /* BeerSearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B58290A73EE00D6A950 /* BeerSearchBuilder.swift */; };
 		DFAD9B5D290A73EE00D6A950 /* BeerSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B59290A73EE00D6A950 /* BeerSearchInteractor.swift */; };
+		DFAD9B62290A760200D6A950 /* RandomBeerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B5E290A760200D6A950 /* RandomBeerRouter.swift */; };
+		DFAD9B63290A760200D6A950 /* RandomBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B5F290A760200D6A950 /* RandomBeerViewController.swift */; };
+		DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B60290A760200D6A950 /* RandomBeerBuilder.swift */; };
+		DFAD9B65290A760200D6A950 /* RandomBeerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		DFAD9B57290A73EE00D6A950 /* BeerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchViewController.swift; sourceTree = "<group>"; };
 		DFAD9B58290A73EE00D6A950 /* BeerSearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchBuilder.swift; sourceTree = "<group>"; };
 		DFAD9B59290A73EE00D6A950 /* BeerSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerSearchInteractor.swift; sourceTree = "<group>"; };
+		DFAD9B5E290A760200D6A950 /* RandomBeerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerRouter.swift; sourceTree = "<group>"; };
+		DFAD9B5F290A760200D6A950 /* RandomBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerViewController.swift; sourceTree = "<group>"; };
+		DFAD9B60290A760200D6A950 /* RandomBeerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerBuilder.swift; sourceTree = "<group>"; };
+		DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,10 @@
 		DFAD9B55290A73DF00D6A950 /* RandomBeer */ = {
 			isa = PBXGroup;
 			children = (
+				DFAD9B5E290A760200D6A950 /* RandomBeerRouter.swift */,
+				DFAD9B5F290A760200D6A950 /* RandomBeerViewController.swift */,
+				DFAD9B60290A760200D6A950 /* RandomBeerBuilder.swift */,
+				DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */,
 			);
 			path = RandomBeer;
 			sourceTree = "<group>";
@@ -216,19 +228,23 @@
 				DFAD9B50290A725300D6A950 /* TabBarRouter.swift in Sources */,
 				DFAD9B42290A02FD00D6A950 /* RootViewController.swift in Sources */,
 				DFAD9B4A290A1DD400D6A950 /* AppComponent.swift in Sources */,
+				DFAD9B63290A760200D6A950 /* RandomBeerViewController.swift in Sources */,
 				DFAD9B52290A725300D6A950 /* TabBarBuilder.swift in Sources */,
 				DFAD9B5D290A73EE00D6A950 /* BeerSearchInteractor.swift in Sources */,
+				DFAD9B62290A760200D6A950 /* RandomBeerRouter.swift in Sources */,
 				DFAD9B5B290A73EE00D6A950 /* BeerSearchViewController.swift in Sources */,
 				DFAD9B41290A02FD00D6A950 /* RootRouter.swift in Sources */,
 				DFAD9B44290A02FD00D6A950 /* RootInteractor.swift in Sources */,
 				DFAD9B5C290A73EE00D6A950 /* BeerSearchBuilder.swift in Sources */,
 				DFAD9B2E290A02EE00D6A950 /* ViewController.swift in Sources */,
+				DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */,
 				DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */,
 				DFAD9B53290A725300D6A950 /* TabBarInteractor.swift in Sources */,
 				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
 				DFAD9B51290A725300D6A950 /* TabBarViewController.swift in Sources */,
 				DFAD9B43290A02FD00D6A950 /* RootBuilder.swift in Sources */,
 				DFAD9B5A290A73EE00D6A950 /* BeerSearchRouter.swift in Sources */,
+				DFAD9B65290A760200D6A950 /* RandomBeerInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
