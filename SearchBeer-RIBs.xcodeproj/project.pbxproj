@@ -30,6 +30,10 @@
 		DFAD9B63290A760200D6A950 /* RandomBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B5F290A760200D6A950 /* RandomBeerViewController.swift */; };
 		DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B60290A760200D6A950 /* RandomBeerBuilder.swift */; };
 		DFAD9B65290A760200D6A950 /* RandomBeerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */; };
+		DFAD9B67290AA38A00D6A950 /* RootViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */; };
+		DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B69290AA3BC00D6A950 /* SnapKit */; };
+		DFAD9B6D290AA45500D6A950 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B6C290AA45500D6A950 /* Then */; };
+		DFAD9B72290AA78D00D6A950 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B71290AA78D00D6A950 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,8 @@
 		DFAD9B5F290A760200D6A950 /* RandomBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerViewController.swift; sourceTree = "<group>"; };
 		DFAD9B60290A760200D6A950 /* RandomBeerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerBuilder.swift; sourceTree = "<group>"; };
 		DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerInteractor.swift; sourceTree = "<group>"; };
+		DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
+		DFAD9B71290AA78D00D6A950 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAD9B48290A044600D6A950 /* RIBs in Frameworks */,
+				DFAD9B6D290AA45500D6A950 /* Then in Frameworks */,
+				DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +98,7 @@
 		DFAD9B28290A02EE00D6A950 /* SearchBeer-RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				DFAD9B6E290AA77D00D6A950 /* Util */,
 				DFAD9B55290A73DF00D6A950 /* RandomBeer */,
 				DFAD9B54290A73D400D6A950 /* BeerSearch */,
 				DFAD9B4B290A721500D6A950 /* TabBar */,
@@ -112,6 +121,7 @@
 				DFAD9B3E290A02FD00D6A950 /* RootViewController.swift */,
 				DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */,
 				DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */,
+				DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -149,6 +159,30 @@
 			path = RandomBeer;
 			sourceTree = "<group>";
 		};
+		DFAD9B6E290AA77D00D6A950 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B6F290AA78400D6A950 /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		DFAD9B6F290AA78400D6A950 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B70290AA78700D6A950 /* UIView */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DFAD9B70290AA78700D6A950 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B71290AA78D00D6A950 /* UIView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +201,8 @@
 			name = "SearchBeer-RIBs";
 			packageProductDependencies = (
 				DFAD9B47290A044600D6A950 /* RIBs */,
+				DFAD9B69290AA3BC00D6A950 /* SnapKit */,
+				DFAD9B6C290AA45500D6A950 /* Then */,
 			);
 			productName = "SearchBeer-RIBs";
 			productReference = DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */;
@@ -198,6 +234,8 @@
 			mainGroup = DFAD9B1D290A02EE00D6A950;
 			packageReferences = (
 				DFAD9B46290A044600D6A950 /* XCRemoteSwiftPackageReference "RIBs" */,
+				DFAD9B68290AA3BC00D6A950 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DFAD9B27290A02EE00D6A950 /* Products */;
 			projectDirPath = "";
@@ -227,6 +265,7 @@
 			files = (
 				DFAD9B50290A725300D6A950 /* TabBarRouter.swift in Sources */,
 				DFAD9B42290A02FD00D6A950 /* RootViewController.swift in Sources */,
+				DFAD9B72290AA78D00D6A950 /* UIView.swift in Sources */,
 				DFAD9B4A290A1DD400D6A950 /* AppComponent.swift in Sources */,
 				DFAD9B63290A760200D6A950 /* RandomBeerViewController.swift in Sources */,
 				DFAD9B52290A725300D6A950 /* TabBarBuilder.swift in Sources */,
@@ -243,6 +282,7 @@
 				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
 				DFAD9B51290A725300D6A950 /* TabBarViewController.swift in Sources */,
 				DFAD9B43290A02FD00D6A950 /* RootBuilder.swift in Sources */,
+				DFAD9B67290AA38A00D6A950 /* RootViewCell.swift in Sources */,
 				DFAD9B5A290A73EE00D6A950 /* BeerSearchRouter.swift in Sources */,
 				DFAD9B65290A760200D6A950 /* RandomBeerInteractor.swift in Sources */,
 			);
@@ -468,6 +508,22 @@
 				minimumVersion = 0.13.1;
 			};
 		};
+		DFAD9B68290AA3BC00D6A950 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +531,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DFAD9B46290A044600D6A950 /* XCRemoteSwiftPackageReference "RIBs" */;
 			productName = RIBs;
+		};
+		DFAD9B69290AA3BC00D6A950 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B68290AA3BC00D6A950 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DFAD9B6C290AA45500D6A950 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
