@@ -29,11 +29,11 @@ class RootViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addView() {
+    private func addView() {
         contentView.addSubViews(beerImg, beerDescriptionLabel)
     }
     
-    func setLayout() {
+    private func setLayout() {
         beerImg.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().inset(10)

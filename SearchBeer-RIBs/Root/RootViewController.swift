@@ -34,11 +34,11 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
     
     
-    func addView() {
+    private func addView() {
         view.addSubViews(beerTableView)
     }
     
-    func setLayout() {
+    private func setLayout() {
         beerTableView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(30)
             $0.leading.trailing.equalToSuperview()
