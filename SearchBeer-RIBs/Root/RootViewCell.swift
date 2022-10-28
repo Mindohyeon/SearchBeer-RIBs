@@ -15,7 +15,7 @@ class RootViewCell: UITableViewCell {
     }
     
     private let beerDescriptionLabel = UILabel().then {
-        $0.text = "textasdfasfasfasfsafsdfas"
+        $0.text = "text"
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,13 +36,15 @@ class RootViewCell: UITableViewCell {
     private func setLayout() {
         beerImg.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
-            $0.leading.equalToSuperview().inset(10)
-            $0.size.equalTo(70)
+            $0.leading.equalToSuperview().inset(30)
+            $0.bottom.equalToSuperview().inset(10)
+            $0.size.equalTo(80)
         }
         
         beerDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.trailing.equalToSuperview().inset(10)
+            $0.leading.equalTo(beerImg.snp.trailing).offset(10)
         }
     }
 }
