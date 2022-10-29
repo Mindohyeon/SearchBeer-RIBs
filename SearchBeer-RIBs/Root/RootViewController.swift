@@ -21,6 +21,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     
     weak var listener: RootPresentableListener?
     private let beerTableView = UITableView()
+    private var beerList = [BeerModel]()
     
     override func viewDidLoad() {
         addView()
@@ -65,11 +66,15 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
 
 extension RootViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return beerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? RootViewCell else { return UITableViewCell() }
+        
+        
+        let beer = beerList[indexPath.row]
+        cell.configure(with: beer)
         
         return cell
     }

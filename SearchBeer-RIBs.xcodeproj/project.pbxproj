@@ -35,7 +35,8 @@
 		DFAD9B6D290AA45500D6A950 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B6C290AA45500D6A950 /* Then */; };
 		DFAD9B72290AA78D00D6A950 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B71290AA78D00D6A950 /* UIView.swift */; };
 		DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B74290B553400D6A950 /* Alamofire */; };
-		DFAD9B77290D71CD00D6A950 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B76290D71CD00D6A950 /* RootModel.swift */; };
+		DFAD9B77290D71CD00D6A950 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B76290D71CD00D6A950 /* BeerModel.swift */; };
+		DFAD9B7D290D767000D6A950 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B7C290D767000D6A950 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +66,7 @@
 		DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerInteractor.swift; sourceTree = "<group>"; };
 		DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
 		DFAD9B71290AA78D00D6A950 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		DFAD9B76290D71CD00D6A950 /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
+		DFAD9B76290D71CD00D6A950 /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 				DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */,
 				DFAD9B6D290AA45500D6A950 /* Then in Frameworks */,
 				DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */,
+				DFAD9B7D290D767000D6A950 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +128,7 @@
 				DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */,
 				DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */,
 				DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */,
-				DFAD9B76290D71CD00D6A950 /* RootModel.swift */,
+				DFAD9B76290D71CD00D6A950 /* BeerModel.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -209,6 +211,7 @@
 				DFAD9B69290AA3BC00D6A950 /* SnapKit */,
 				DFAD9B6C290AA45500D6A950 /* Then */,
 				DFAD9B74290B553400D6A950 /* Alamofire */,
+				DFAD9B7C290D767000D6A950 /* Kingfisher */,
 			);
 			productName = "SearchBeer-RIBs";
 			productReference = DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */;
@@ -243,6 +246,7 @@
 				DFAD9B68290AA3BC00D6A950 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */,
 				DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DFAD9B7B290D767000D6A950 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DFAD9B27290A02EE00D6A950 /* Products */;
 			projectDirPath = "";
@@ -284,7 +288,7 @@
 				DFAD9B5C290A73EE00D6A950 /* BeerSearchBuilder.swift in Sources */,
 				DFAD9B2E290A02EE00D6A950 /* ViewController.swift in Sources */,
 				DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */,
-				DFAD9B77290D71CD00D6A950 /* RootModel.swift in Sources */,
+				DFAD9B77290D71CD00D6A950 /* BeerModel.swift in Sources */,
 				DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */,
 				DFAD9B53290A725300D6A950 /* TabBarInteractor.swift in Sources */,
 				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
@@ -540,6 +544,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		DFAD9B7B290D767000D6A950 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -562,6 +574,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DFAD9B7C290D767000D6A950 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B7B290D767000D6A950 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RootModel: Codable {
+struct BeerModel: Codable {
     let id: Int
     let name, tagline, description, imageUrl: String
     

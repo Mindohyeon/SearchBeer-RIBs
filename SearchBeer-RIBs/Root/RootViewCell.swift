@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import Kingfisher
 
 class RootViewCell: UITableViewCell {
     private let beerImg = UIImageView().then {
@@ -46,5 +47,11 @@ class RootViewCell: UITableViewCell {
             $0.trailing.equalToSuperview().inset(10)
             $0.leading.equalTo(beerImg.snp.trailing).offset(10)
         }
+    }
+    
+    func configure(with beer: BeerModel) {
+        let imageUrl = URL(string: beer.imageUrl)
+        beerImg.kf.setImage(with: imageUrl)
+        beerDescriptionLabel.text = beer.description
     }
 }
