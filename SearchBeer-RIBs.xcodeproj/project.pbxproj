@@ -35,6 +35,7 @@
 		DFAD9B6D290AA45500D6A950 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B6C290AA45500D6A950 /* Then */; };
 		DFAD9B72290AA78D00D6A950 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B71290AA78D00D6A950 /* UIView.swift */; };
 		DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B74290B553400D6A950 /* Alamofire */; };
+		DFAD9B77290D71CD00D6A950 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B76290D71CD00D6A950 /* RootModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		DFAD9B61290A760200D6A950 /* RandomBeerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBeerInteractor.swift; sourceTree = "<group>"; };
 		DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
 		DFAD9B71290AA78D00D6A950 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		DFAD9B76290D71CD00D6A950 /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				DFAD9B3F290A02FD00D6A950 /* RootBuilder.swift */,
 				DFAD9B40290A02FD00D6A950 /* RootInteractor.swift */,
 				DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */,
+				DFAD9B76290D71CD00D6A950 /* RootModel.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				DFAD9B5C290A73EE00D6A950 /* BeerSearchBuilder.swift in Sources */,
 				DFAD9B2E290A02EE00D6A950 /* ViewController.swift in Sources */,
 				DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */,
+				DFAD9B77290D71CD00D6A950 /* RootModel.swift in Sources */,
 				DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */,
 				DFAD9B53290A725300D6A950 /* TabBarInteractor.swift in Sources */,
 				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
