@@ -9,10 +9,10 @@ import Foundation
 
 struct BeerModel: Codable {
     let id: Int
-    let name, tagline, description, imageUrl: String
+    let name, description, imageUrl: String
     
     enum CodingKeys: String, CodingKey {
-        case id, name, tagline, description
+        case id, name, description
         case imageUrl = "image_url"
     }
 }

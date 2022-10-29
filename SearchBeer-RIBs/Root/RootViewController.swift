@@ -27,14 +27,14 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
         addView()
         setLayout()
         
-        fetch()
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Beer List"
         beerTableView.dataSource = self
         beerTableView.register(RootViewCell.self, forCellReuseIdentifier: "beerTableViewCell")
         beerTableView.rowHeight = UITableView.automaticDimension
         beerTableView.estimatedRowHeight = UITableView.automaticDimension
+        
+        fetch()
     }
     
     
@@ -51,17 +51,29 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
     
     func fetch() {
-        let url = "https://api.punkapi.com/v2/beers"
-        AF.request(url,
-                   method: .get,
-                    parameters: nil,
-                   encoding: URLEncoding.default)
-        .validate(statusCode: 200..<300)
-        .responseString { json in
-            print("jsonData = \(json)")
-        }
+        let url = "https://api.punkapi.com/v2/beers?page=1"
+        AF.request(url, method: .get)
+            .responseJSON { [weak self] response in
+                
+                do {
+                    switch(response.result) {
+                    case .success(_):
+                        print("jsonData = \(response)")
+                        self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
+//                        print(beerList.count)
+                        
+                        DispatchQueue.main.async {
+                            self?.beerTableView.reloadData()
+                        }
+                        
+                    case .failure(let error):
+                        print("error!! = \(error)")
+                    }
+                }
+            }.resume()
     }
 }
+
 
 
 extension RootViewController: UITableViewDataSource {
@@ -71,7 +83,6 @@ extension RootViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? RootViewCell else { return UITableViewCell() }
-        
         
         let beer = beerList[indexPath.row]
         cell.configure(with: beer)

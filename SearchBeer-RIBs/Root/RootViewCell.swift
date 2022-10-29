@@ -52,6 +52,7 @@ class RootViewCell: UITableViewCell {
     func configure(with beer: BeerModel) {
         let imageUrl = URL(string: beer.imageUrl)
         beerImg.kf.setImage(with: imageUrl)
+        print("hihi")
         beerDescriptionLabel.text = beer.description
     }
 }
