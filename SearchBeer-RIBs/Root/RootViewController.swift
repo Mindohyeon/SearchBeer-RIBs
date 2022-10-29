@@ -9,6 +9,7 @@ import RIBs
 import RxSwift
 import UIKit
 import SnapKit
+import Alamofire
 
 protocol RootPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -24,6 +25,8 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     override func viewDidLoad() {
         addView()
         setLayout()
+        
+        fetch()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Beer List"
@@ -43,6 +46,18 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(30)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    func fetch() {
+        let url = "https://api.punkapi.com/v2/beers"
+        AF.request(url,
+                   method: .get,
+                    parameters: nil,
+                   encoding: URLEncoding.default)
+        .validate(statusCode: 200..<300)
+        .responseString { json in
+            print("jsonData = \(json)")
         }
     }
 }

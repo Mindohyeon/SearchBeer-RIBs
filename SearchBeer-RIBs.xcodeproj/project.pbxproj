@@ -34,6 +34,7 @@
 		DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B69290AA3BC00D6A950 /* SnapKit */; };
 		DFAD9B6D290AA45500D6A950 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B6C290AA45500D6A950 /* Then */; };
 		DFAD9B72290AA78D00D6A950 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B71290AA78D00D6A950 /* UIView.swift */; };
+		DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B74290B553400D6A950 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAD9B48290A044600D6A950 /* RIBs in Frameworks */,
+				DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */,
 				DFAD9B6D290AA45500D6A950 /* Then in Frameworks */,
 				DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */,
 			);
@@ -203,6 +205,7 @@
 				DFAD9B47290A044600D6A950 /* RIBs */,
 				DFAD9B69290AA3BC00D6A950 /* SnapKit */,
 				DFAD9B6C290AA45500D6A950 /* Then */,
+				DFAD9B74290B553400D6A950 /* Alamofire */,
 			);
 			productName = "SearchBeer-RIBs";
 			productReference = DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */;
@@ -236,6 +239,7 @@
 				DFAD9B46290A044600D6A950 /* XCRemoteSwiftPackageReference "RIBs" */,
 				DFAD9B68290AA3BC00D6A950 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */,
+				DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = DFAD9B27290A02EE00D6A950 /* Products */;
 			projectDirPath = "";
@@ -524,6 +528,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -541,6 +553,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		DFAD9B74290B553400D6A950 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

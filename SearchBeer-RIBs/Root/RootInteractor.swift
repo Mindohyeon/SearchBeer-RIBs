@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import Alamofire
 
 protocol RootRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -19,6 +20,7 @@ protocol RootPresentable: Presentable {
 
 protocol RootListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func fetch()
 }
 
 final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
@@ -31,7 +33,10 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override init(presenter: RootPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
+        
+//        fetch()
     }
+    
 
     override func didBecomeActive() {
         super.didBecomeActive()

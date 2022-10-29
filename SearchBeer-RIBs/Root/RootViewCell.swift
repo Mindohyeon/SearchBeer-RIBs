@@ -35,9 +35,9 @@ class RootViewCell: UITableViewCell {
     
     private func setLayout() {
         beerImg.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(10)
-            $0.leading.equalToSuperview().inset(30)
-            $0.bottom.equalToSuperview().inset(10)
+            $0.top.equalTo(10)
+            $0.leading.equalTo(30)
+            $0.bottom.equalToSuperview().inset(3)
             $0.size.equalTo(80)
         }
         
