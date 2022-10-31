@@ -12,10 +12,13 @@ import Kingfisher
 
 class RootViewCell: UITableViewCell {
     private let beerImg = UIImageView().then {
+        $0.sizeToFit()
         $0.backgroundColor = .gray
     }
     
     private let beerDescriptionLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 12)
+        $0.numberOfLines = 0
         $0.text = "text"
     }
     
@@ -37,22 +40,23 @@ class RootViewCell: UITableViewCell {
     private func setLayout() {
         beerImg.snp.makeConstraints {
             $0.top.equalTo(10)
-            $0.leading.equalTo(30)
+            $0.leading.equalTo(12)
             $0.bottom.equalToSuperview().inset(3)
-            $0.size.equalTo(80)
+            $0.width.equalTo(80)
+            $0.height.equalTo(120)
         }
         
         beerDescriptionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(10)
             $0.trailing.equalToSuperview().inset(10)
             $0.leading.equalTo(beerImg.snp.trailing).offset(10)
+            $0.bottom.equalToSuperview().inset(3)
         }
     }
     
     func configure(with beer: BeerModel) {
         let imageUrl = URL(string: beer.imageUrl)
         beerImg.kf.setImage(with: imageUrl)
-        print("hihi")
         beerDescriptionLabel.text = beer.description
     }
 }

@@ -32,8 +32,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
         beerTableView.dataSource = self
         beerTableView.register(RootViewCell.self, forCellReuseIdentifier: "beerTableViewCell")
         beerTableView.rowHeight = UITableView.automaticDimension
-        beerTableView.estimatedRowHeight = UITableView.automaticDimension
-        
         fetch()
     }
     
@@ -51,26 +49,23 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
     
     func fetch() {
-        let url = "https://api.punkapi.com/v2/beers?page=1"
-        AF.request(url, method: .get)
-            .responseJSON { [weak self] response in
-                
-                do {
-                    switch(response.result) {
-                    case .success(_):
-                        print("jsonData = \(response)")
-                        self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-//                        print(beerList.count)
-                        
-                        DispatchQueue.main.async {
-                            self?.beerTableView.reloadData()
-                        }
-                        
-                    case .failure(let error):
-                        print("error!! = \(error)")
+        let url = "https://api.punkapi.com/v2/beers"
+        AF.request(url, method: .get).responseJSON { [weak self] response in
+            do {
+                switch(response.result) {
+                case .success(_):
+                    print("jsonData = \(response)")
+                    self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
+                    
+                    DispatchQueue.main.async {
+                        self?.beerTableView.reloadData()
                     }
+                    
+                case .failure(let error):
+                    print("error!! = \(error)")
                 }
-            }.resume()
+            }
+        }.resume()
     }
 }
 
