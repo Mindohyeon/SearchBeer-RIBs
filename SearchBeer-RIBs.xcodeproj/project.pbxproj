@@ -37,7 +37,6 @@
 		DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B74290B553400D6A950 /* Alamofire */; };
 		DFAD9B77290D71CD00D6A950 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B76290D71CD00D6A950 /* BeerModel.swift */; };
 		DFAD9B7D290D767000D6A950 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B7C290D767000D6A950 /* Kingfisher */; };
-		DFAD9B80290F73C200D6A950 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B7F290F73C200D6A950 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +67,6 @@
 		DFAD9B66290AA38A00D6A950 /* RootViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
 		DFAD9B71290AA78D00D6A950 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DFAD9B76290D71CD00D6A950 /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
-		DFAD9B7F290F73C200D6A950 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +167,6 @@
 		DFAD9B6E290AA77D00D6A950 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				DFAD9B7E290F73B300D6A950 /* Class */,
 				DFAD9B6F290AA78400D6A950 /* Extension */,
 			);
 			path = Util;
@@ -189,14 +186,6 @@
 				DFAD9B71290AA78D00D6A950 /* UIView.swift */,
 			);
 			path = UIView;
-			sourceTree = "<group>";
-		};
-		DFAD9B7E290F73B300D6A950 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				DFAD9B7F290F73C200D6A950 /* Observable.swift */,
-			);
-			path = Class;
 			sourceTree = "<group>";
 		};
 		DFAD9B81290F740600D6A950 /* Cell */ = {
@@ -317,7 +306,6 @@
 				DFAD9B64290A760200D6A950 /* RandomBeerBuilder.swift in Sources */,
 				DFAD9B77290D71CD00D6A950 /* BeerModel.swift in Sources */,
 				DFAD9B2A290A02EE00D6A950 /* AppDelegate.swift in Sources */,
-				DFAD9B80290F73C200D6A950 /* Observable.swift in Sources */,
 				DFAD9B53290A725300D6A950 /* TabBarInteractor.swift in Sources */,
 				DFAD9B2C290A02EE00D6A950 /* SceneDelegate.swift in Sources */,
 				DFAD9B51290A725300D6A950 /* TabBarViewController.swift in Sources */,
