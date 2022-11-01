@@ -21,13 +21,13 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
 
     weak var listener: BeerDetailPresentableListener?
     
-    let beerImg = UIImageView().then {
+    private let beerImg = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .gray
     }
     
     
-    let beerDescriptionLabel = UILabel().then {
+    private let beerDescriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 12)
         $0.numberOfLines = 0
         $0.text = "text"
