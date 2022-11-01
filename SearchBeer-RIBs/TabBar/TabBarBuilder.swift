@@ -20,7 +20,7 @@ final class TabBarComponent: Component<TabBarDependency> {
 // MARK: - Builder
 
 protocol TabBarBuildable: Buildable {
-    func build() -> LaunchRouting
+    func build(withListener listener: TabBarListener) -> TabBarRouting
 }
 
 final class TabBarBuilder: Builder<TabBarDependency>, TabBarBuildable {
@@ -29,10 +29,11 @@ final class TabBarBuilder: Builder<TabBarDependency>, TabBarBuildable {
         super.init(dependency: dependency)
     }
 
-    func build() -> LaunchRouting {
+    func build(withListener listener: TabBarListener) -> TabBarRouting {
         let component = TabBarComponent(dependency: dependency)
         let viewController = TabBarViewController()
         let interactor = TabBarInteractor(presenter: viewController)
+        interactor.listener = listener
         return TabBarRouter(interactor: interactor, viewController: viewController)
     }
 }

@@ -18,7 +18,7 @@ protocol TabBarPresentableListener: AnyObject {
 final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarViewControllable {
 
     weak var listener: TabBarPresentableListener?
-    private let rootVC = RootViewController()
+    private let rootVC = BeerListViewController()
     private let beerSearchVC = BeerSearchViewController()
     private let randomVC = RandomBeerViewController()
     

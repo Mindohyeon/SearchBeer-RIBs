@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import RxRelay
 import UIKit
 import SnapKit
 import Alamofire
@@ -18,70 +19,11 @@ protocol RootPresentableListener: AnyObject {
 }
 
 final class RootViewController: UIViewController, RootPresentable, RootViewControllable {
-    
-    weak var listener: RootPresentableListener?
-    private let beerTableView = UITableView()
-    private var beerList = [BeerModel]()
-    
-    override func viewDidLoad() {
-        addView()
-        setLayout()
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Beer List"
-        beerTableView.dataSource = self
-        beerTableView.register(RootViewCell.self, forCellReuseIdentifier: "beerTableViewCell")
-        beerTableView.rowHeight = UITableView.automaticDimension
-        fetch()
+    func setViewController(viewController: RIBs.ViewControllable) {
+        viewController.uiviewController.modalPresentationStyle = .fullScreen
+        present(viewController.uiviewController, animated: true)
     }
     
+    var listener: RootPresentableListener?
     
-    private func addView() {
-        view.addSubViews(beerTableView)
-    }
-    
-    private func setLayout() {
-        beerTableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(30)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-    }
-    
-    func fetch() {
-        let url = "https://api.punkapi.com/v2/beers"
-        AF.request(url, method: .get).responseJSON { [weak self] response in
-            do {
-                switch(response.result) {
-                case .success(_):
-                    print("jsonData = \(response)")
-                    self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    
-                    DispatchQueue.main.async {
-                        self?.beerTableView.reloadData()
-                    }
-                    
-                case .failure(let error):
-                    print("error!! = \(error)")
-                }
-            }
-        }.resume()
-    }
-}
-
-
-
-extension RootViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beerList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? RootViewCell else { return UITableViewCell() }
-        
-        let beer = beerList[indexPath.row]
-        cell.configure(with: beer)
-        
-        return cell
-    }
 }

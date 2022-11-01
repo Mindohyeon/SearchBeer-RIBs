@@ -7,20 +7,41 @@
 
 import RIBs
 
-protocol RootInteractable: Interactable {
+protocol RootInteractable: Interactable, TabBarListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
 
 protocol RootViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    
+    func setViewController(viewController: ViewControllable)
 }
 
-final class RootRouter: ViewableRouter<RootInteractable, RootViewControllable>, RootRouting {
+final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
 
+    private let tabBarBuilder: TabBarBuildable
+    
+    private var tabBar: ViewableRouting?
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: RootInteractable, viewController: RootViewControllable) {
+    init(interactor: RootInteractable, viewController: RootViewControllable, tabBarBuilder: TabBarBuildable) {
+        self.tabBarBuilder = tabBarBuilder
         super.init(interactor: interactor, viewController: viewController)
+        
         interactor.router = self
     }
+
+    override func didLoad() {
+        routeToTabBarPresent()
+    }
+    
+    private func routeToTabBarPresent() {
+        let tabBar = tabBarBuilder.build(withListener: interactor)
+        self.tabBar = tabBar
+        attachChild(tabBar)
+        
+        viewController.setViewController(viewController: tabBar.viewControllable)
+    }
+    
 }

@@ -1,34 +1,34 @@
 //
-//  RootInteractor.swift
+//  BeerDetailInteractor.swift
 //  SearchBeer-RIBs
 //
-//  Created by 민도현 on 2022/10/27.
+//  Created by 민도현 on 2022/11/01.
 //
 
 import RIBs
 import RxSwift
 
-protocol RootRouting: ViewableRouting {
+protocol BeerDetailRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
-protocol RootPresentable: Presentable {
-    var listener: RootPresentableListener? { get set }
+protocol BeerDetailPresentable: Presentable {
+    var listener: BeerDetailPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol RootListener: AnyObject {
+protocol BeerDetailListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
+final class BeerDetailInteractor: PresentableInteractor<BeerDetailPresentable>, BeerDetailInteractable, BeerDetailPresentableListener {
 
-    weak var router: RootRouting?
-    weak var listener: RootListener?
+    weak var router: BeerDetailRouting?
+    weak var listener: BeerDetailListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: RootPresentable) {
+    override init(presenter: BeerDetailPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }

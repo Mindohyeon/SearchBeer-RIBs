@@ -10,9 +10,9 @@ import Then
 import SnapKit
 import Kingfisher
 
-class RootViewCell: UITableViewCell {
+class BeerListViewCell: UITableViewCell {
     private let beerImg = UIImageView().then {
-        $0.sizeToFit()
+        $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .gray
     }
     
@@ -42,8 +42,8 @@ class RootViewCell: UITableViewCell {
             $0.top.equalTo(10)
             $0.leading.equalTo(12)
             $0.bottom.equalToSuperview().inset(3)
-            $0.width.equalTo(80)
-            $0.height.equalTo(120)
+            $0.width.equalTo(100)
+            $0.height.equalTo(150)
         }
         
         beerDescriptionLabel.snp.makeConstraints {
