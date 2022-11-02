@@ -54,7 +54,6 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
             do {
                 switch(response.result) {
                 case .success(_):
-                    print("jsonData = \(response)")
                     self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
                     
                     DispatchQueue.main.async {

@@ -70,5 +70,4 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
         beerId.text = String(beer.id)
         beerDescriptionLabel.text = beer.description
     }
-    
 }
