@@ -55,9 +55,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
             .debounce(RxTimeInterval.microseconds(7), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(onNext: { text in
-                //                self.items = beerList.description.filter { $0.hasPrefix(text) }
                 self.postMethod(id: text)
-                print(text)
             })
         navigationItem.searchController = searchBarView
         
@@ -90,9 +88,12 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     
     func configure(with beer: BeerModel) {
         let imageUrl = URL(string: beer.imageUrl)
-        beerImg.kf.setImage(with: imageUrl)
-        beerId.text = String(beer.id)
-        beerDescriptionLabel.text = beer.description
+        
+        DispatchQueue.main.async {
+            self.beerImg.kf.setImage(with: imageUrl)
+            self.beerId.text = String(beer.id)
+            self.beerDescriptionLabel.text = beer.description
+        }
     }
     
     func postMethod(id: String) {
@@ -113,6 +114,5 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
                 }
             }
         }
-        
     }
 }
