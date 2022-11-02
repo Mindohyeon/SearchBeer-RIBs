@@ -45,6 +45,9 @@
 		DFAD9B942911314000D6A950 /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B902911314000D6A950 /* BeerDetailViewController.swift */; };
 		DFAD9B952911314000D6A950 /* BeerDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B912911314000D6A950 /* BeerDetailBuilder.swift */; };
 		DFAD9B962911314000D6A950 /* BeerDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAD9B922911314000D6A950 /* BeerDetailInteractor.swift */; };
+		DFAD9B9929115F7A00D6A950 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B9829115F7A00D6A950 /* RxCocoa */; };
+		DFAD9B9B29115F7A00D6A950 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B9A29115F7A00D6A950 /* RxRelay */; };
+		DFAD9B9D29115F7A00D6A950 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DFAD9B9C29115F7A00D6A950 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,10 +93,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAD9B9929115F7A00D6A950 /* RxCocoa in Frameworks */,
 				DFAD9B48290A044600D6A950 /* RIBs in Frameworks */,
+				DFAD9B9B29115F7A00D6A950 /* RxRelay in Frameworks */,
 				DFAD9B75290B553400D6A950 /* Alamofire in Frameworks */,
 				DFAD9B6D290AA45500D6A950 /* Then in Frameworks */,
 				DFAD9B6A290AA3BC00D6A950 /* SnapKit in Frameworks */,
+				DFAD9B9D29115F7A00D6A950 /* RxSwift in Frameworks */,
 				DFAD9B7D290D767000D6A950 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +274,9 @@
 				DFAD9B6C290AA45500D6A950 /* Then */,
 				DFAD9B74290B553400D6A950 /* Alamofire */,
 				DFAD9B7C290D767000D6A950 /* Kingfisher */,
+				DFAD9B9829115F7A00D6A950 /* RxCocoa */,
+				DFAD9B9A29115F7A00D6A950 /* RxRelay */,
+				DFAD9B9C29115F7A00D6A950 /* RxSwift */,
 			);
 			productName = "SearchBeer-RIBs";
 			productReference = DFAD9B26290A02EE00D6A950 /* SearchBeer-RIBs.app */;
@@ -303,6 +312,7 @@
 				DFAD9B6B290AA45500D6A950 /* XCRemoteSwiftPackageReference "Then" */,
 				DFAD9B73290B553400D6A950 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DFAD9B7B290D767000D6A950 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DFAD9B9729115F7A00D6A950 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = DFAD9B27290A02EE00D6A950 /* Products */;
 			projectDirPath = "";
@@ -616,6 +626,14 @@
 				minimumVersion = 7.4.1;
 			};
 		};
+		DFAD9B9729115F7A00D6A950 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +661,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DFAD9B7B290D767000D6A950 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		DFAD9B9829115F7A00D6A950 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B9729115F7A00D6A950 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DFAD9B9A29115F7A00D6A950 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B9729115F7A00D6A950 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DFAD9B9C29115F7A00D6A950 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DFAD9B9729115F7A00D6A950 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

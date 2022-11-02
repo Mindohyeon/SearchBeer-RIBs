@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 import Alamofire
 import Foundation
 
@@ -39,7 +40,6 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
     
     override func didBecomeActive() {
         super.didBecomeActive()
-        print("didbecomeActive")
         // TODO: Implement business logic here.
         
         //        listener?.fetch

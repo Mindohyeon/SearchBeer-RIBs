@@ -26,6 +26,9 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
         $0.backgroundColor = .gray
     }
     
+    private let beerId = UILabel().then {
+        $0.font = .systemFont(ofSize: 10)
+    }
     
     private let beerDescriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 12)
@@ -39,7 +42,7 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
     }
     
     private func addView() {
-        view.addSubViews(beerImg, beerDescriptionLabel)
+        view.addSubViews(beerImg, beerId, beerDescriptionLabel)
     }
     
     private func setLayout() {
@@ -48,6 +51,11 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
             $0.centerX.equalToSuperview()
             $0.width.equalTo(100)
             $0.height.equalTo(150)
+        }
+        
+        beerId.snp.makeConstraints {
+            $0.top.equalTo(beerImg.snp.bottom).offset(4)
+            $0.centerX.equalToSuperview()
         }
         
         beerDescriptionLabel.snp.makeConstraints {
@@ -59,6 +67,7 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
     func configure(with beer: BeerModel) {
         let imageUrl = URL(string: beer.imageUrl)
         beerImg.kf.setImage(with: imageUrl)
+        beerId.text = String(beer.id)
         beerDescriptionLabel.text = beer.description
     }
     

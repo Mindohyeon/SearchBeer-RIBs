@@ -8,6 +8,8 @@
 import RIBs
 import RxSwift
 import UIKit
+import Then
+import SnapKit
 
 protocol BeerSearchPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -16,6 +18,25 @@ protocol BeerSearchPresentableListener: AnyObject {
 }
 
 final class BeerSearchViewController: UIViewController, BeerSearchPresentable, BeerSearchViewControllable {
-
+    
     weak var listener: BeerSearchPresentableListener?
+    private var items = [String]()
+    private let beerList: [BeerModel] = []
+    private let resultTableView = UITableView()
+    
+    
+    private let searchBarView = UISearchController().then {
+        $0.searchBar.placeholder = "Search"
+    }
+    
+    override func viewDidLoad() {
+        
+        self.searchBarView.searchBar.rx.text.orEmpty
+            .debounce(RxTimeInterval.microseconds(2), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { text in
+//                self.items = beerList.description.filter { $0.hasPrefix(text) }
+            })
+        navigationItem.searchController = searchBarView
+    }
 }

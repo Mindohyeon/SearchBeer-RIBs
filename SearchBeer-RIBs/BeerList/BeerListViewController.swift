@@ -9,6 +9,7 @@ import RIBs
 import RxSwift
 import UIKit
 import Alamofire
+import RxCocoa
 
 protocol BeerListPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
@@ -34,7 +35,6 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         
         fetch()
     }
-    
     
     private func addView() {
         view.addSubViews(beerTableView)
@@ -92,8 +92,13 @@ extension BeerListViewController: UITableViewDataSource, UITableViewDelegate {
         vc.configure(with: model)
         
         navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 
+public extension Reactive where Base: UIViewController {
+    var viewDidLoad: ControlEvent<Void> {
+      let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { _ in }
+      return ControlEvent(events: source)
+    }
+}
 
