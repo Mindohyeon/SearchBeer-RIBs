@@ -47,7 +47,6 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     }
     
     override func viewDidLoad() {
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Search By Id"
         
@@ -90,6 +89,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
         let imageUrl = URL(string: beer.imageUrl)
         
         DispatchQueue.main.async {
+
             self.beerImg.kf.setImage(with: imageUrl)
             self.beerId.text = String(beer.id)
             self.beerDescriptionLabel.text = beer.description
@@ -104,7 +104,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
             do {
                 switch(response.result) {
                 case .success(_):
-                    print("jsonData = \(response)")
+//                    print("jsonData = \(response)")
                     self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
                     
                     self?.configure(with: (self?.beerList[0])!)

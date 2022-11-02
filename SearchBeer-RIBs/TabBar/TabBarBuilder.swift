@@ -17,6 +17,8 @@ final class TabBarComponent: Component<TabBarDependency> {
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
+extension TabBarComponent: BeerListDependency, BeerSearchDependency, RandomBeerDependency {}
+
 // MARK: - Builder
 
 protocol TabBarBuildable: Buildable {
@@ -33,7 +35,18 @@ final class TabBarBuilder: Builder<TabBarDependency>, TabBarBuildable {
         let component = TabBarComponent(dependency: dependency)
         let viewController = TabBarViewController()
         let interactor = TabBarInteractor(presenter: viewController)
-        interactor.listener = listener
-        return TabBarRouter(interactor: interactor, viewController: viewController)
+        
+        let beerListBuilder = BeerListBuilder(dependency: component)
+        let beerSearchBuilder = BeerSearchBuilder(dependency: component)
+        let beerRandomBuilder = RandomBeerBuilder(dependency: component)
+//        interactor.listener = listener
+        
+        return TabBarRouter(
+            interactor: interactor,
+            viewController: viewController,
+            beerListBuilder: beerListBuilder,
+            beerSearchBuilder: beerSearchBuilder,
+            beerRandomBuilder: beerRandomBuilder
+        )
     }
 }

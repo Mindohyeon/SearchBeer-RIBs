@@ -17,9 +17,12 @@ protocol BeerListViewControllable: ViewControllable {
 }
 
 final class BeerListRouter: ViewableRouter<BeerListInteractable, BeerListViewControllable>, BeerListRouting {
-
+    
+    private let detailBeerBuilder: BeerDetailBuildable?
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: BeerListInteractable, viewController: BeerListViewControllable) {
+    init(detailBeerBuilder: BeerDetailBuilder, interactor: BeerListInteractable, viewController: BeerListViewControllable) {
+        self.detailBeerBuilder = detailBeerBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }

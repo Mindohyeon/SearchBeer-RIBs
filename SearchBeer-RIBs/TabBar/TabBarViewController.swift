@@ -18,21 +18,13 @@ protocol TabBarPresentableListener: AnyObject {
 final class TabBarViewController: UITabBarController, TabBarPresentable, TabBarViewControllable {
 
     weak var listener: TabBarPresentableListener?
-    private let rootVC = BeerListViewController()
-    private let beerSearchVC = BeerSearchViewController()
-    private let randomVC = RandomBeerViewController()
     
     override func viewDidLoad() {
         view.backgroundColor = .white
-        
-        rootVC.tabBarItem = UITabBarItem(title: "BeerList", image: UIImage(systemName: "1.circle.fill")?.withTintColor(.black), tag: 0)
-        beerSearchVC.tabBarItem = UITabBarItem(title: "BeerSearch", image: UIImage(systemName: "2.circle.fill")?.withTintColor(.black), tag: 1)
-        randomVC.tabBarItem = UITabBarItem(title: "randomBeer", image: UIImage(systemName: "3.circle.fill")?.withTintColor(.black), tag: 2)
-        
-        let rootNavVC = UINavigationController(rootViewController: rootVC)
-        let beerSearchNavVC = UINavigationController(rootViewController: beerSearchVC)
-        let randomNavVC = UINavigationController(rootViewController: randomVC)
-        
-        self.viewControllers = [rootNavVC, beerSearchNavVC, randomNavVC]
     }
+    
+    func present(viewControllers: [UIViewController]) {
+            setViewControllers(viewControllers, animated: true)
+    //        present(viewController, animated: true, completion: nil)
+        }
 }

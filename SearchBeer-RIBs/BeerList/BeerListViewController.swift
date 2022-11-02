@@ -12,15 +12,15 @@ import Alamofire
 import RxCocoa
 
 protocol BeerListPresentableListener: AnyObject {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    
 }
 
 final class BeerListViewController: UIViewController, BeerListPresentable, BeerListViewControllable {
+    
     weak var listener: BeerListPresentableListener?
     var beerList: [BeerModel] = []
     private let beerTableView = UITableView()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         addView()
@@ -32,8 +32,6 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         beerTableView.delegate = self
         beerTableView.register(BeerListViewCell.self, forCellReuseIdentifier: "beerTableViewCell")
         beerTableView.rowHeight = UITableView.automaticDimension
-        
-        fetch()
     }
     
     private func addView() {
@@ -48,23 +46,20 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         }
     }
     
-    func fetch() {
-        let url = "https://api.punkapi.com/v2/beers"
-        AF.request(url, method: .get).responseJSON { [weak self] response in
-            do {
-                switch(response.result) {
-                case .success(_):
-                    self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    
-                    DispatchQueue.main.async {
-                        self?.beerTableView.reloadData()
-                    }
-                    
-                case .failure(let error):
-                    print("error!! = \(error)")
-                }
-            }
-        }.resume()
+    private func bindListener() {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("A")
+    }
+}
+
+extension BeerListViewController {
+    var onAppear: Observable<Void> {
+        print("B")
+        return self.rx.viewDidAppear
+            .asObservable()
     }
 }
 
@@ -96,8 +91,13 @@ extension BeerListViewController: UITableViewDataSource, UITableViewDelegate {
 
 public extension Reactive where Base: UIViewController {
     var viewDidLoad: ControlEvent<Void> {
-      let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { _ in }
-      return ControlEvent(events: source)
+        let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { _ in }
+        return ControlEvent(events: source)
+    }
+    
+    var viewDidAppear: ControlEvent<Void> {
+        let source = methodInvoked(#selector(Base.viewDidAppear(_:))).map { _ in }
+        return ControlEvent(events: source)
     }
 }
 

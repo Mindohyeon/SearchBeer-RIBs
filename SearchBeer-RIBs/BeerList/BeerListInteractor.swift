@@ -18,18 +18,20 @@ protocol BeerListRouting: ViewableRouting {
 protocol BeerListPresentable: Presentable {
     var listener: BeerListPresentableListener? { get set }
     var beerList: [BeerModel] { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    var onAppear: Observable<Void> { get }
 }
 
 protocol BeerListListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
-    var fetch: Observable<Void> { get set }
+    
 }
 
 final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, BeerListInteractable, BeerListPresentableListener {
     
     weak var router: BeerListRouting?
     weak var listener: BeerListListener?
+    private let isfetchRelay = BehaviorRelay<Void>(value: ())
+    private let disposeBag = DisposeBag()
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -42,36 +44,26 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
         super.didBecomeActive()
         // TODO: Implement business logic here.
         
-        //        listener?.fetch
-        //            .subscribe(onNext: {
-        //                print("koko")
-        //                let url = "https://api.punkapi.com/v2/beers"
-        //                AF.request(url, method: .get).responseJSON { [weak self] response in
-        //                    do {
-        //                        switch(response.result) {
-        //                        case .success(_):
-        //                            print("jsonData = \(response)")
-        //                            self?.presenter.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-        //
-        //                        case .failure(let error):
-        //                            print("error!! = \(error)")
-        //                        }
-        //                    }
-        //                }.resume()
-        //            })
-        let url = "https://api.punkapi.com/v2/beers"
-        AF.request(url, method: .get).responseJSON { [weak self] response in
-            do {
-                switch(response.result) {
-                case .success(_):
-                    print("jsonData = \(response)")
-                    self?.presenter.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    
-                case .failure(let error):
-                    print("error!! = \(error)")
-                }
-            }
-        }.resume()
+        presenter.onAppear
+            .bind(onNext: {
+                let url = "https://api.punkapi.com/v2/beers"
+                AF.request(url, method: .get).responseJSON { [weak self] response in
+                    do {
+                        switch(response.result) {
+                        case .success(_):
+                            print("this is fetch function")
+                            //                    print("jsonData = \(response)")
+                            self?.presenter.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
+                            
+                            
+                        case .failure(let error):
+                            print("error!! = \(error)")
+                        }
+                    }
+                }.resume()
+                
+            })
+            .disposed(by: disposeBag)
     }
     
     override func willResignActive() {

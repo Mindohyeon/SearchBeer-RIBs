@@ -19,11 +19,10 @@ protocol RootPresentableListener: AnyObject {
 }
 
 final class RootViewController: UIViewController, RootPresentable, RootViewControllable {
-    func setViewController(viewController: RIBs.ViewControllable) {
-        viewController.uiviewController.modalPresentationStyle = .fullScreen
-        present(viewController.uiviewController, animated: true)
-    }
     
     var listener: RootPresentableListener?
     
+    func present(_ viewController: UIViewController) {
+        present(viewController, animated: true)
+    }
 }

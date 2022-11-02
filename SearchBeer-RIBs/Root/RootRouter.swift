@@ -6,6 +6,7 @@
 //
 
 import RIBs
+import UIKit
 
 protocol RootInteractable: Interactable, TabBarListener {
     var router: RootRouting? { get set }
@@ -13,9 +14,8 @@ protocol RootInteractable: Interactable, TabBarListener {
 }
 
 protocol RootViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+    func present(_ viewController: UIViewController)
     
-    func setViewController(viewController: ViewControllable)
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -40,8 +40,11 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         let tabBar = tabBarBuilder.build(withListener: interactor)
         self.tabBar = tabBar
         attachChild(tabBar)
+        let vc = tabBar.viewControllable.uiviewController
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
         
-        viewController.setViewController(viewController: tabBar.viewControllable)
+        viewController.present(vc)
     }
     
 }
