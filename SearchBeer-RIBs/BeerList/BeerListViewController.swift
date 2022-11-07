@@ -50,6 +50,12 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
                 cell.configure(with: beer)
             }
             .disposed(by: disposeBag)
+        
+        beerTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.beerTableView.deselectRow(at: indexPath, animated: true)
+                print(indexPath.row)
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -60,23 +66,6 @@ extension BeerListViewController {
             .asObservable()
     }
 }
-
-
-//extension BeerListViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return listener?.beerItems.map{ $0.count }
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? BeerListViewCell else { return UITableViewCell() }
-//
-//        let beer = beerList[indexPath.row]
-//        cell.configure(with: beer)
-//
-//        return cell
-//    }
-//
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let vc = BeerDetailViewController()
 //        let model = beerList[indexPath.row]
