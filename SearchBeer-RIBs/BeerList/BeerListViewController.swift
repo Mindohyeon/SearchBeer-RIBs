@@ -12,13 +12,12 @@ import Alamofire
 import RxCocoa
 
 protocol BeerListPresentableListener: AnyObject {
-    
+    var beerItems: PublishSubject<[BeerModel]> { get }
 }
 
 final class BeerListViewController: UIViewController, BeerListPresentable, BeerListViewControllable {
     
     weak var listener: BeerListPresentableListener?
-    var beerList: [BeerModel] = []
     private let beerTableView = UITableView()
     private let disposeBag = DisposeBag()
     
@@ -28,10 +27,9 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Beer List"
-        beerTableView.dataSource = self
-        beerTableView.delegate = self
         beerTableView.register(BeerListViewCell.self, forCellReuseIdentifier: "beerTableViewCell")
         beerTableView.rowHeight = UITableView.automaticDimension
+        bindTableView()
     }
     
     private func addView() {
@@ -46,12 +44,12 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         }
     }
     
-    private func bindListener() {
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("A")
+    private func bindTableView() {
+        listener?.beerItems
+            .bind(to: beerTableView.rx.items(cellIdentifier: "beerTableViewCell", cellType: BeerListViewCell.self)) { (row, beer, cell) in
+                cell.configure(with: beer)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -64,30 +62,30 @@ extension BeerListViewController {
 }
 
 
-extension BeerListViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beerList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? BeerListViewCell else { return UITableViewCell() }
-        
-        let beer = beerList[indexPath.row]
-        cell.configure(with: beer)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = BeerDetailViewController()
-        let model = beerList[indexPath.row]
-        
-        vc.configure(with: model)
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
+//extension BeerListViewController: UITableViewDataSource, UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return listener?.beerItems.map{ $0.count }
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "beerTableViewCell", for: indexPath) as? BeerListViewCell else { return UITableViewCell() }
+//
+//        let beer = beerList[indexPath.row]
+//        cell.configure(with: beer)
+//
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let vc = BeerDetailViewController()
+//        let model = beerList[indexPath.row]
+//
+//        vc.configure(with: model)
+//
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+//}
 
 public extension Reactive where Base: UIViewController {
     var viewDidLoad: ControlEvent<Void> {
