@@ -20,6 +20,7 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
     weak var listener: BeerListPresentableListener?
     private let beerTableView = UITableView()
     private let disposeBag = DisposeBag()
+    private let detailVC = BeerDetailViewController()
     
     override func viewDidLoad() {
         addView()
@@ -54,7 +55,7 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         beerTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.beerTableView.deselectRow(at: indexPath, animated: true)
-                print(indexPath.row)
+                let model = self?.listener?.beerItems[index]
             }).disposed(by: disposeBag)
     }
 }
