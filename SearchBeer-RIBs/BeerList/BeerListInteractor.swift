@@ -42,7 +42,7 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
-        beerItems = .init()
+
         
         presenter.onAppear
             .bind(onNext: {

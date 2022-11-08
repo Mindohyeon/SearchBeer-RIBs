@@ -55,7 +55,7 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
         beerTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.beerTableView.deselectRow(at: indexPath, animated: true)
-                let model = self?.listener?.beerItems[index]
+                let model = self?.listener?.beerItems
             }).disposed(by: disposeBag)
     }
 }
