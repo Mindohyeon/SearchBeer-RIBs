@@ -21,20 +21,7 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
 
     weak var listener: BeerDetailPresentableListener?
     
-    private let beerImg = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .gray
-    }
-    
-    private let beerId = UILabel().then {
-        $0.font = .systemFont(ofSize: 10)
-    }
-    
-    private let beerDescriptionLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 12)
-        $0.numberOfLines = 0
-        $0.text = "text"
-    }
+    private let beerView = BeerView()
     
     override func viewDidLoad() {
         addView()
@@ -42,32 +29,16 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
     }
     
     private func addView() {
-        view.addSubViews(beerImg, beerId, beerDescriptionLabel)
+        view.addSubViews(beerView)
     }
     
     private func setLayout() {
-        beerImg.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(108)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(100)
-            $0.height.equalTo(150)
-        }
-        
-        beerId.snp.makeConstraints {
-            $0.top.equalTo(beerImg.snp.bottom).offset(4)
-            $0.centerX.equalToSuperview()
-        }
-        
-        beerDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(beerImg.snp.bottom).offset(97)
-            $0.leading.trailing.equalToSuperview().inset(71)
+        beerView.snp.makeConstraints {
+            $0.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
-    func configure(with beer: BeerModel) {
-        let imageUrl = URL(string: beer.imageUrl)
-        beerImg.kf.setImage(with: imageUrl)
-        beerId.text = String(beer.id)
-        beerDescriptionLabel.text = beer.description
+    func configure(with model: BeerModel) {
+        beerView.configure(with: model)
     }
 }

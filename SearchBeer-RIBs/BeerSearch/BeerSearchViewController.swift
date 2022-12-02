@@ -25,6 +25,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     private var beerList: [BeerModel] = []
     private let resultTableView = UITableView()
     private let detailVC = BeerDetailViewController()
+    private let disposeBag = DisposeBag()
     
     private let beerImg = UIImageView().then {
         $0.contentMode = .scaleAspectFit
@@ -55,7 +56,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
             .distinctUntilChanged()
             .subscribe(onNext: { text in
                 self.postMethod(id: text)
-            })
+            }).disposed(by: disposeBag)
         navigationItem.searchController = searchBarView
         
         addView()
@@ -89,7 +90,6 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
         let imageUrl = URL(string: beer.imageUrl)
         
         DispatchQueue.main.async {
-
             self.beerImg.kf.setImage(with: imageUrl)
             self.beerId.text = String(beer.id)
             self.beerDescriptionLabel.text = beer.description
@@ -98,13 +98,10 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     
     func postMethod(id: String) {
         let url = "https://api.punkapi.com/v2/beers/\(id)"
-        AF.request(url,
-                   method: .get,
-                   encoding: URLEncoding.default).responseJSON { [weak self] response in
+        AF.request(url, method: .get, encoding: URLEncoding.default).responseJSON { [weak self] response in
             do {
                 switch(response.result) {
                 case .success(_):
-//                    print("jsonData = \(response)")
                     self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
                     
                     self?.configure(with: (self?.beerList[0])!)
