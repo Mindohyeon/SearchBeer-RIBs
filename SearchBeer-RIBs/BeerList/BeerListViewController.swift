@@ -64,20 +64,10 @@ final class BeerListViewController: UIViewController, BeerListPresentable, BeerL
 
 extension BeerListViewController {
     var onAppear: Observable<Void> {
-        print("B")
         return self.rx.viewDidAppear
             .asObservable()
     }
 }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = BeerDetailViewController()
-//        let model = beerList[indexPath.row]
-//
-//        vc.configure(with: model)
-//
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//}
 
 public extension Reactive where Base: UIViewController {
     var viewDidLoad: ControlEvent<Void> {
