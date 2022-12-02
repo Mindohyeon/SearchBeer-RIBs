@@ -17,20 +17,19 @@ protocol BeerListRouting: ViewableRouting {
 
 protocol BeerListPresentable: Presentable {
     var listener: BeerListPresentableListener? { get set }
-    var beerList: [BeerModel] { get set }
     var onAppear: Observable<Void> { get }
 }
 
 protocol BeerListListener: AnyObject {
+    //    var beerList: Observable<[BeerModel]> { get }
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
     
 }
 
 final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, BeerListInteractable, BeerListPresentableListener {
-    
+    var beerItems = PublishSubject<[BeerModel]>()
     weak var router: BeerListRouting?
     weak var listener: BeerListListener?
-    private let isfetchRelay = BehaviorRelay<Void>(value: ())
     private let disposeBag = DisposeBag()
     
     // TODO: Add additional dependencies to constructor. Do not perform any logic
@@ -43,19 +42,17 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
+
         
         presenter.onAppear
             .bind(onNext: {
                 let url = "https://api.punkapi.com/v2/beers"
-                AF.request(url, method: .get).responseJSON { [weak self] response in
+                AF.request(url, method: .get).responseData { [weak self] response in
                     do {
                         switch(response.result) {
                         case .success(_):
-                            print("this is fetch function")
-                            //                    print("jsonData = \(response)")
-                            self?.presenter.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                            
-                            
+                            let beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
+                            self?.beerItems.onNext(beerList)
                         case .failure(let error):
                             print("error!! = \(error)")
                         }
