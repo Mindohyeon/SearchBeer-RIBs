@@ -34,7 +34,7 @@ final class BeerDetailViewController: UIViewController, BeerDetailPresentable, B
     
     private func setLayout() {
         beerView.snp.makeConstraints {
-            $0.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.top.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     

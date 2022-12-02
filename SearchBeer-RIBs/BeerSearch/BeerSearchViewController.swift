@@ -26,22 +26,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     private let resultTableView = UITableView()
     private let detailVC = BeerDetailViewController()
     private let disposeBag = DisposeBag()
-    
-    private let beerImg = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .gray
-    }
-    
-    private let beerId = UILabel().then {
-        $0.font = .systemFont(ofSize: 10)
-    }
-    
-    private let beerDescriptionLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 12)
-        $0.numberOfLines = 0
-        $0.text = "text"
-    }
-    
+    private let beerView = BeerView()
     
     private let searchBarView = UISearchController().then {
         $0.searchBar.placeholder = "Search"
@@ -64,36 +49,17 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     }
     
     private func addView() {
-        view.addSubViews(beerImg, beerId, beerDescriptionLabel)
+        view.addSubViews(beerView)
     }
     
     private func setLayout() {
-        beerImg.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(108)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(100)
-            $0.height.equalTo(150)
-        }
-        
-        beerId.snp.makeConstraints {
-            $0.top.equalTo(beerImg.snp.bottom).offset(4)
-            $0.centerX.equalToSuperview()
-        }
-        
-        beerDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(beerImg.snp.bottom).offset(97)
-            $0.leading.trailing.equalToSuperview().inset(71)
+        beerView.snp.makeConstraints {
+            $0.top.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
-    func configure(with beer: BeerModel) {
-        let imageUrl = URL(string: beer.imageUrl)
-        
-        DispatchQueue.main.async {
-            self.beerImg.kf.setImage(with: imageUrl)
-            self.beerId.text = String(beer.id)
-            self.beerDescriptionLabel.text = beer.description
-        }
+    private func configure(with model: BeerModel) {
+        beerView.configure(with: model)
     }
     
     func postMethod(id: String) {
