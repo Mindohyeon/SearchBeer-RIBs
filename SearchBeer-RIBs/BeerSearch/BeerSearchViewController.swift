@@ -21,10 +21,7 @@ protocol BeerSearchPresentableListener: AnyObject {
 final class BeerSearchViewController: UIViewController, BeerSearchPresentable, BeerSearchViewControllable {
     
     weak var listener: BeerSearchPresentableListener?
-    private var items = [String]()
     private var beerList: [BeerModel] = []
-    private let resultTableView = UITableView()
-    private let detailVC = BeerDetailViewController()
     private let disposeBag = DisposeBag()
     private let beerView = BeerView()
     
@@ -64,7 +61,9 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     
     func postMethod(id: String) {
         let url = "https://api.punkapi.com/v2/beers/\(id)"
-        AF.request(url, method: .get, encoding: URLEncoding.default).responseJSON { [weak self] response in
+        AF.request(url,
+                   method: .get,
+                   encoding: URLEncoding.default).responseData { [weak self] response in
             do {
                 switch(response.result) {
                 case .success(_):
