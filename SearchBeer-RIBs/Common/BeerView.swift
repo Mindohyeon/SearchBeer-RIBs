@@ -63,8 +63,10 @@ final class BeerView: UIView {
     
     func configure(with beer: BeerModel) {
         let imageUrl = URL(string: beer.imageUrl)
-        beerImg.kf.setImage(with: imageUrl)
-        beerId.text = String(beer.id)
-        beerDescriptionLabel.text = beer.description
+        DispatchQueue.main.async {
+            self.beerImg.kf.setImage(with: imageUrl)
+            self.beerId.text = String(beer.id)
+            self.beerDescriptionLabel.text = beer.description
+        }
     }
 }

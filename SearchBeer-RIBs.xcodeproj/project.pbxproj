@@ -117,6 +117,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		DF21F19D293B8B8A003CCDA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFAD9B76290D71CD00D6A950 /* BeerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DFAD9B1D290A02EE00D6A950 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +144,7 @@
 		DFAD9B28290A02EE00D6A950 /* SearchBeer-RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				DF21F19D293B8B8A003CCDA8 /* Model */,
 				DF035B152939A170005E15E9 /* Common */,
 				DFAD9B8C2911312400D6A950 /* BeerDetail */,
 				DFAD9B83290FA6B100D6A950 /* BeerList */,
@@ -243,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				DFAD9B81290F740600D6A950 /* Cell */,
-				DFAD9B76290D71CD00D6A950 /* BeerModel.swift */,
 				DFAD9B84290FA6C100D6A950 /* BeerListRouter.swift */,
 				DFAD9B85290FA6C100D6A950 /* BeerListViewController.swift */,
 				DFAD9B86290FA6C100D6A950 /* BeerListBuilder.swift */,
