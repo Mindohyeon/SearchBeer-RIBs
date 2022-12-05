@@ -43,8 +43,8 @@ final class BeerSearchInteractor: PresentableInteractor<BeerSearchPresentable>, 
             do {
                 switch(response.result) {
                 case .success(_):
-                    let beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    self?.beerItems.onNext(beerList)
+                    let beerList = try? JSONDecoder().decode([BeerModel].self, from: response.data!)
+                    self?.beerItems.onNext(beerList ?? .init())
                     
                 case .failure(let error):
                     print("error!! = \(error)")

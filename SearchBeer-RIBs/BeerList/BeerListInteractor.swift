@@ -42,7 +42,7 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
-
+        
         
         presenter.onAppear
             .bind(onNext: {
@@ -51,14 +51,14 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
                     do {
                         switch(response.result) {
                         case .success(_):
-                            let beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                            self?.beerItems.onNext(beerList)
+                            let beerList = try? JSONDecoder().decode([BeerModel].self, from: response.data!)
+                            self?.beerItems.onNext(beerList ?? .init())
+                            
                         case .failure(let error):
                             print("error!! = \(error)")
                         }
                     }
                 }.resume()
-                
             })
             .disposed(by: disposeBag)
     }

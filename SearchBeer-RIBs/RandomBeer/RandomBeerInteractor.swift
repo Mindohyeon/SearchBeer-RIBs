@@ -46,7 +46,6 @@ final class RandomBeerInteractor: PresentableInteractor<RandomBeerPresentable>, 
                 switch response.result {
                 case .success:
                     let beerList = try? JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    print("beerList = \(beerList)")
                     self?.beerItems.onNext(beerList ?? .init())
                 case .failure(let error):
                     print("error = \(error.localizedDescription)")

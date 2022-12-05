@@ -35,16 +35,18 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Search By Id"
         
-        self.searchBarView.searchBar.rx.text.orEmpty
+        searchBarView.searchBar.rx.text.orEmpty
             .debounce(RxTimeInterval.microseconds(7), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .bind { [weak self] text in
                 self?.listener?.postMethod(id: text)
                 
-                self?.listener?.beerItems.bind { [weak self] searchData in
-                    self?.beerView.configure(with: searchData[0])
-                }.disposed(by: self!.disposeBag)
             }.disposed(by: disposeBag)
+        
+        listener?.beerItems.bind { [weak self] searchData in
+            self?.beerView.configure(with: searchData[0])
+        }.disposed(by: disposeBag)
+        
         navigationItem.searchController = searchBarView
         
         addView()
