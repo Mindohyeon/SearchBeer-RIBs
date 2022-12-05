@@ -16,6 +16,8 @@ protocol BeerSearchPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    var beerItems: PublishSubject<[BeerModel]> { get set }
+    func postMethod(id: String)
 }
 
 final class BeerSearchViewController: UIViewController, BeerSearchPresentable, BeerSearchViewControllable {
@@ -26,7 +28,7 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     private let beerView = BeerView()
     
     private let searchBarView = UISearchController().then {
-        $0.searchBar.placeholder = "Search"
+        $0.searchBar.placeholder = "id 로 검색"
     }
     
     override func viewDidLoad() {
@@ -36,9 +38,13 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
         self.searchBarView.searchBar.rx.text.orEmpty
             .debounce(RxTimeInterval.microseconds(7), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribe(onNext: { text in
-                self.postMethod(id: text)
-            }).disposed(by: disposeBag)
+            .bind { [weak self] text in
+                self?.listener?.postMethod(id: text)
+                
+                self?.listener?.beerItems.bind { [weak self] searchData in
+                    self?.beerView.configure(with: searchData[0])
+                }.disposed(by: self!.disposeBag)
+            }.disposed(by: disposeBag)
         navigationItem.searchController = searchBarView
         
         addView()
@@ -57,24 +63,5 @@ final class BeerSearchViewController: UIViewController, BeerSearchPresentable, B
     
     private func configure(with model: BeerModel) {
         beerView.configure(with: model)
-    }
-    
-    func postMethod(id: String) {
-        let url = "https://api.punkapi.com/v2/beers/\(id)"
-        AF.request(url,
-                   method: .get,
-                   encoding: URLEncoding.default).responseData { [weak self] response in
-            do {
-                switch(response.result) {
-                case .success(_):
-                    self?.beerList = try! JSONDecoder().decode([BeerModel].self, from: response.data!)
-                    
-                    self?.configure(with: (self?.beerList[0])!)
-                    
-                case .failure(let error):
-                    print("error!! = \(error)")
-                }
-            }
-        }
     }
 }
