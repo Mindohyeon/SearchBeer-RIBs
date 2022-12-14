@@ -51,7 +51,7 @@ final class RandomBeerInteractor: PresentableInteractor<RandomBeerPresentable>, 
                     print("error = \(error.localizedDescription)")
                 }
             }
-        }
+        }.resume()
     }
 
     override func didBecomeActive() {

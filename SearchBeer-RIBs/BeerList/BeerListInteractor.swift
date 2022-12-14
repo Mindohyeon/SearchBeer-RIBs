@@ -43,7 +43,6 @@ final class BeerListInteractor: PresentableInteractor<BeerListPresentable>, Beer
         super.didBecomeActive()
         // TODO: Implement business logic here.
         
-        
         presenter.onAppear
             .bind(onNext: {
                 let url = "https://api.punkapi.com/v2/beers"

@@ -40,7 +40,6 @@ final class RandomBeerViewController: UIViewController, RandomBeerPresentable, R
         
         randomButton.rx.tap.bind { [weak self] in
             self?.listener?.buttonAction()
-            
         }.disposed(by: disposeBag)
         
         listener?.beerItems.bind { [weak self] modelData in

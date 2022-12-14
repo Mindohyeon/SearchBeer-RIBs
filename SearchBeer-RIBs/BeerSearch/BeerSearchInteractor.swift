@@ -50,7 +50,7 @@ final class BeerSearchInteractor: PresentableInteractor<BeerSearchPresentable>, 
                     print("error!! = \(error)")
                 }
             }
-        }
+        }.resume()
     }
 
     override func didBecomeActive() {

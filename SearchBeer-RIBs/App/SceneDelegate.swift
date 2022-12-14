@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let launchRouter = RootBuilder(dependency: AppComponent()).build()
         self.launchRouter = launchRouter
         launchRouter.launch(from: window!)
-
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -15,7 +15,6 @@ protocol RootInteractable: Interactable, TabBarListener {
 
 protocol RootViewControllable: ViewControllable {
     func present(_ viewController: UIViewController)
-    
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -46,5 +45,4 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         
         viewController.present(vc)
     }
-    
 }
